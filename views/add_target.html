@@ -1,0 +1,21 @@
+<div class="modal-content">
+  <div id="closeModal" ng-click="closeModal()"><i class="fa fa-times"></i></div>
+  <div id="target-form">
+    <div class="form-field">
+      <label for="target-name">Name:</label>
+      <input id="target-name" type="text" ng-model="model.newTarget.name">
+    </div>
+    <div class="form-field">
+      <label for="target-position">Position:</label>
+      <input id="target-position" type="text" ng-model="model.newTarget.role">
+    </div>
+    <div class="form-field">
+      <label for="target-email">Email:</label>
+      <input id="main-email" type="email" ng-model="model.newTarget.email" required>
+    </div>
+  </div>
+  <div class="m-buttons">
+    <button class="btn-close" ng-click="closeModal()">Cancel</button>
+    <button class="btn-add" ng-click="addTarget()" ng-disabled="!model.newTarget.email ">Add</button>
+  </div>
+</div>

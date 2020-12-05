@@ -1,1 +1,56 @@
-<div id="form-page">form</div>
+<div id="main-form" class="form-content">
+
+    <h2>Form title</h2>
+    <div class="form-field">
+      <label for="main-fn">First name:</label><br/>
+      <input id="main-fn" type="text" ng-model="model.form.fn" required>
+    </div>
+    <div class="form-field">
+      <label for="main-ln">Last name:</label><br/>
+      <input id="main-ln" type="text" ng-model="model.form.ln" required>
+    </div>
+    <div class="form-field">
+      <label for="main-email">Email:</label><br/>
+      <input id="main-email" type="email" ng-model="model.form.email" required>
+    </div>
+    <div class="form-field">
+      <label for="main-relationship">What is your connection to the University of Alberta?</label><br/>
+      <select ng-model="model.form.group" id="main-relationship" ng-change="updateTargets()">
+        <option ng-repeat="g in model.groups" ng-value="{{g.id}}" >{{g.relationship}}</option>
+      </select>
+    </div>
+    <!--maybe change the ng-if to an ng-class for a smoother transition-->
+    <div class="form-feild" ng-if="model.form.group && model.form.group < 6">
+      <label for="main-faculty">What faculty are you associated with?</label><br/>
+      <select ng-model="model.form.faculty" ng-options="f for f in model.faculties" ng-change="updateFaculty()"></select>
+    </div>
+    <div id="target-list" class="form-field">
+      <label>To:</label>
+      <div ng-repeat="target in model.form.targets" class="target-bubble">
+        {{target.name? target.name : target.email}}
+        <span  ng-click="model.form.targets.splice($index,1)"><i class="fa fa-times"></i></span>
+      </div>
+      <br/>
+      <div id="add-contact" ng-click="openModal('add_target')">
+        Add a recipient&nbsp;<i class="fa fa-plus"></i>
+      </div>
+    </div>
+    <div id="email-body" class="form-field">
+      <summernote ng-model="model.editable"><summernote>
+    </div>
+    <div class="form-field">
+      <label for="main-reason">Why do you feel it is important to spread this message?</label><br/>
+      <textarea id="main-reason" style="height: 15vh; width:100%"></textarea>
+    </div>
+    <div class="form-field">
+      <label for="main-communication">Want to hear from us in future?</label>
+      <input id="main-communication" type="checkbox" ng-model="model.form.signup"></input>
+    </div>
+    <div id="submit">
+      <button class="form-button" ng-click="submit()" ng-disabled="!model.form.fn || model.form.fn=='' || !model.form.ln || model.form.fn==ln || !model.form.email || model.form.email=='' || model.form.targets.length==0 || model.inProgress">Send and Submit</button>
+    </div>
+    <div id="disclaimer">
+
+    </div>
+
+</div>
