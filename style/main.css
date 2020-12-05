@@ -2,4 +2,58 @@ html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  font-family: Spartan;
+  padding: 0em;
+  line-height: 2em;
 }
+
+.col-sm-1 {
+    background-color: #990000;
+}
+
+.col-md-10 {
+    background-color: #fff;
+}
+
+.logo {
+	display: block;
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 200px;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 20em;
+	color: green;
+}
+
+h2 {
+	margin: 1em;
+}
+
+h3 {
+	margin: 1em;
+}
+
+p {
+	margin: 2em;
+}
+
+.bold {
+	font-weight: bolder;
+}
+
+a:link {
+  color: #990000;
+}
+
+a:visted {
+  color: #990000 !important;
+}
+
+a:hover {
+  color: #990000;
+  font-weight: bold;
+}
+
