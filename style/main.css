@@ -314,3 +314,12 @@ select:focus {
   color:#990000 !important;
   text-decoration: none;
 }
+
+#wait-spinner {
+  width: 30%;
+  margin: auto;
+  margin-top: 40%;
+  font-size: 30px;
+  opacity: 0.5;
+  text-align: center;
+}
