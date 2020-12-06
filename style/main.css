@@ -62,10 +62,10 @@ a:hover {
   width: 200px;
 }
 
-<<<<<<< HEAD
 .form-field {
   margin: 2em;
-=======
+}
+
 row {
     height: 100%;
 }
@@ -73,8 +73,6 @@ row {
 h1 {
 	text-align: center;
 	margin-top: 20em;
-	color: green;
->>>>>>> 788d8cd81e8b86e1ec88c8c6fa6f7692c13afd0b
 }
 
 #submit {
