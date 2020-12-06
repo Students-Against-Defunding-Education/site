@@ -306,6 +306,7 @@ select:focus {
   color: white !important;
   border-radius: 20px;
   margin-bottom: 1vh;
+  transition: background-color  0.3s ease;
 }
 
 .nav a:hover {
