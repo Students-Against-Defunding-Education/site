@@ -22,6 +22,10 @@ html, body {
   	width: 200px;
 }
 
+row {
+    height: 100%;
+}
+
 h1 {
 	text-align: center;
 	margin-top: 20em;
@@ -63,9 +67,16 @@ a:hover {
 }
 
 /*some starting point form styles*/
+
+.form-content {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 2vh;
+  padding-bottom: 4vh;
+}
 .form-content input {
   margin: 0 .25rem;
-  min-width: 125px;
+  min-width: 50%;
   border: 1px solid #eee;
   border-left: 3px solid;
   border-radius: 5px;
@@ -80,12 +91,12 @@ a:hover {
   border-left-color:  #990000;
 }
 
-.form-item {
-  margin-top: 2vh;
+.form-field {
+  margin-top: 3vh;
 }
 
-.form-content input {
-  padding: 0.5rem;
+.form-content input, .form-content select {
+  padding: 0.3rem;
 }
 
 .form-content input:focus {
@@ -94,7 +105,7 @@ a:hover {
   box-shadow: none;
 }
 
-.form-content input[type=radio] {
+.form-content input[type=checkbox] {
    min-width: 5px !important;
 }
 
@@ -121,7 +132,6 @@ select:focus {
  text-align: center;
  text-decoration: none;
  display: inline-block;
- font-size: 16px;
  transition: border-color .5s ease-in-out;
  transition: background-color .5s ease-in-out;
 }
@@ -141,4 +151,66 @@ select:focus {
 .form-button:focus {
   outline-style: none;
   box-shadow: none;
+}
+
+.target-bubble {
+  border-radius: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-right: 1.5%;
+  transition: all .2s ease-in-out;
+  text-align: center;
+  min-width: 95px;
+  margin-top: .75vh;
+  display: inline-block;
+  color: black !important;
+  background-color: #f4f4f4
+}
+
+.fa-times:hover, .fa-plus:hover {
+  color: #990000;
+  cursor: pointer;
+}
+
+#email-body {
+  margin-top: 4vh;
+}
+
+#disclaimer {
+  padding-top: 4vh;
+  text-align: center;
+  font-size: 12px;
+  opacity: 65%;
+  width: 100%;
+  line-height: normal;
+}
+
+#target-list {
+  margin-bottom: 3vh;
+}
+
+#target-form {
+  padding: 3vh 5% 5vh 5%;
+}
+
+.m-content {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+.m-buttons {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: inline;
+  padding: 5px;
+}
+
+.m-close {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
 }
