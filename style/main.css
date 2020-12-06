@@ -2,59 +2,127 @@ html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  font-family: Spartan;
+  font-family: 'Spartan', sans-serif;
   padding: 0em;
   line-height: 2em;
 }
 
-.col-1 {
-    background-color: #990000;
-}
-
-.col-10 {
-    background-color: #fff;
-}
-
-.logo {
-	display: block;
-	margin-left: auto;
-  	margin-right: auto;
-  	width: 200px;
-}
-
 h1 {
-	text-align: center;
-	margin-top: 20em;
-	color: green;
+  text-align: center;
+  margin-top: 1em;
 }
 
 h2 {
-	margin: 1em;
+  margin: 1em;
 }
 
 h3 {
-	margin: 1em;
+  margin: 1em;
 }
 
 p {
-	margin: 2em;
+  margin: 2em;
 }
 
 .bold {
-	font-weight: bolder;
+  font-weight: bolder;
 }
 
-a:link {
-  color: #990000;
+a {
+  color: #990000 !important;
+  text-decoration: none;
 }
 
 a:visted {
-  color: #990000 !important;
+  color: #990000;
+}
+
+a:active {
+  color: #990000;
 }
 
 a:hover {
   color: #990000;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.col-1 {
+  background-color: #990000;
+}
+
+.col-10 {
+  background-color: #fff;
+}
+
+.logo {
+	display: block;
+	margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+
+.form-field {
+  margin: 2em;
+}
+
+#submit {
+  margin: 2em;
+}
+
+#home-page {
+  padding-top: 3vh;
+}
+
+.topnav {
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+
+.topnav a {
+  float: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 3vh;
+  list-style-type: none;
+  display: inline-block;
+}
+
+.topnav a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.topnav a:active {
+}
+
+.topnav li {
+  list-style-type: none;
+  margin: 0 2vw;
+  font-size: 3vh;
+}
+
+.topnav ul {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  display: flex;
+  width: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+  .topnav ul{
+    flex-direction: column; 
+    font-size: 1vh;
+  }
+
+  .topnav li{
+    margin: 0;
+  }
+  .topnnav a{
+    display: block;
+  }
 }
 
 /*not an ideal solution but config isn't working*/
