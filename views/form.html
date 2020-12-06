@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 <div id="main-form" class="form-content">
 <img src="./style/SADElogo.jpg" alt="Students Against Defunding Education" class="logo">
     <h2>Share your voice</h2>
     <p>Help us take action against the defunding of education, and the injustices of the University of Alberta for Tomorrow initiative! Use your voice to advocate for students and our admin colleagues who will suffer from extreme cuts to education under the current UCP government.</p>
     <p>Use this form to share your concerns with those who have the power to make decisions at this university and in the Government of Alberta, including President Bill Flanagan, Provost & Vice-President Academic Steven Dew, the Board of Governors, Premier Jason Kenney, Advanced Education Minister Demetrios Nicolaides, NDP Opposition Leader Rachel Notley, and Advanced Education Critic David Eggen.</p>
+=======
+<div id="main-form">
+  <div class="form-content" ng-show="!model.submitted">
+    <h2>Share your voice</h2>
+    <div id="form-description">
+      This is why you should fill out the form
+    </div>
+>>>>>>> 788d8cd81e8b86e1ec88c8c6fa6f7692c13afd0b
     <div class="form-field">
       <label for="main-fn">First name:</label><br/>
       <input id="main-fn" type="text" ng-model="model.form.fn" required>
@@ -27,22 +36,21 @@
       <select ng-model="model.form.faculty" ng-options="f for f in model.faculties" ng-change="updateFaculty()"></select>
     </div>
     <div id="target-list" class="form-field">
-      <label>To:</label>
+      <label>To:</label><br>
       <div ng-repeat="target in model.form.targets" class="target-bubble">
         {{target.name? target.name : target.email}}
         <span  ng-click="model.form.targets.splice($index,1)"><i class="fa fa-times"></i></span>
       </div>
-      <br/>
-      <div id="add-contact" ng-click="openModal('add_target')">
-        Add a recipient&nbsp;<i class="fa fa-plus"></i>
-      </div>
+    </div><br/><br/>
+    <div id="add-contact" ng-click="openModal('add_target')">
+      Add a recipient&nbsp;<i class="fa fa-plus"></i>
     </div>
     <div id="email-body" class="form-field">
       <summernote ng-model="model.editable"><summernote>
     </div>
     <div class="form-field">
       <label for="main-reason">Why do you feel it is important to spread this message?</label><br/>
-      <textarea id="main-reason" style="height: 15vh; width:100%"></textarea>
+      <textarea id="main-reason" style="height: 15vh; width:100%" ng-model="model.form.reason"></textarea>
     </div>
     <div class="form-field">
       <label for="main-communication">Want to hear from us in future?</label>
@@ -52,7 +60,17 @@
       <button class="form-button" ng-click="submit()" ng-disabled="!model.form.fn || model.form.fn=='' || !model.form.ln || model.form.fn==ln || !model.form.email || model.form.email=='' || model.form.targets.length==0 || model.inProgress">Send and Submit</button>
     </div>
     <div id="disclaimer">
-
+       We are committed to respecting your privacy and will not share your data with any other group or organization without your permission. Should you require further information about collection, use and disclosure of personal information, please contact <a href="mailto:studentsagainstdefunding@gmail.com">studentsagainstdefunding@gmail.com</a>.
     </div>
-
+  </div>
+  <div id="completed-screen" ng-show="model.submitted">
+    <div ng-show="model.inProgress">
+      <div class="fa-3x">
+        <i class="fas fa-cog fa-spin"></i>
+      </div>
+    </div>
+    <div ng-show="!model.inProgress">
+      YAY YOU'VE SUBMITTED THE FORM
+    </div>
+  </div>
 </div>

@@ -25,8 +25,9 @@ app.config(function($routeProvider) {
 app.controller('ctrl', function($scope,  $window, $document, $location, dbService, $uibModal,  $sce, $templateRequest, $compile) {
   $scope.model = {
     targets:{},
-    form: {signup: true, group:6,},
+    form: {signup: true, group:6},
     newTarget:{},
+    submitted:false,
     inProgress: false
   }
 
@@ -34,7 +35,6 @@ app.controller('ctrl', function($scope,  $window, $document, $location, dbServic
     var templateUrl = $sce.getTrustedResourceUrl(prefix+ 'views/template.html');
      $templateRequest(templateUrl).then(function(template) {
          // template is the loaded HTML template as a string
-         //$scope.model.template = angular.element(template);
          s = document.createElement("html")
          s.innerHTML = template
          $scope.model.template = s
@@ -85,46 +85,43 @@ app.controller('ctrl', function($scope,  $window, $document, $location, dbServic
   }
 
   $scope.submit = function(){
+    $scope.model.submitted = true
     $scope.model.inProgress = true
     let signature = document.createElement("span")
     signature.innerHTML = $scope.model.form.fn+'&nbsp;'+$scope.model.form.ln
     $($scope.model.template).find('#content-wrapper').append($scope.model.editable)
     $($scope.model.template).find("#letter-signature").append(signature)
 
-    //for testing purposes
-    if($scope.model.form.targets.length==1 && $scope.model.form.targets[0].email=="anna.sollazzo@shaw.ca") {
-      console.log("got here")
-      let data = {
-        "first_name":$scope.model.form.fn && $scope.model.form.fn!=''? Aes.Ctr($scope.model.form.fn, __env.secret, 256):null ,
-        "last_name":$scope.model.form.ln && $scope.model.form.ln!=''? Aes.Ctr($scope.model.form.ln, __env.secret, 256):null ,
-        "email": Aes.Ctr($scope.model.form.email, __env.secret, 256),
-        "group":$scope.model.form.group,
-        "signup": $scope.model.form.signup
+    let data = {
+      "first_name":$scope.model.form.fn && $scope.model.form.fn!=''? Aes.Ctr.encrypt($scope.model.form.fn, __env.secret, 256):null ,
+      "last_name":$scope.model.form.ln && $scope.model.form.ln!=''? Aes.Ctr.encrypt($scope.model.form.ln, __env.secret, 256):null ,
+      "email": Aes.Ctr.encrypt($scope.model.form.email, __env.secret, 256),
+      "group":$scope.model.form.group,
+      "signup": $scope.model.form.signup
+    }
+    dbService.addContact(data).then(function(d){
+      let config = {
+        "targets":$scope.model.form.targets.map(x=>x.email),
+        "subject":$scope.model.form.fn + " is concerned about restructuring at University of Alberta",
+        "template":$scope.model.template.outerHTML
       }
-      console.log(data)
-      dbService.addContact(data).then(function(d){
-        console.log("contact added")
-        let config = {
-          "targets":$scope.model.form.targets.map(x=>x.email),
-          "subject":$scope.model.form.subject,//this will need to be updated when I know how it works
-          "template":$scope.model.template.outerHTML
+      dbService.sendEmail(config).then(function(){
+        //send the record
+        let record = {
+          "contact":d["id"],
+          "targets":$scope.model.form.targets.map(x=>x.id),
+          "reason": $scope.model.form.reason==''? null:$scope.model.form.reason
         }
-        dbService.sendEmail(config).then(function(){
-          //send the record
-          let record = {
-            "contact":d["id"],
-            "targets":$scope.model.form.targets.map(x=>x.id),
-            "reason": $scope.model.form.reason==''? null:$scope.model.form.reason
-          }
-          dbService.addSentRecord(record).then(function(){
-            //we're done, so reset?
-            $scope.model.form = {signup: false, group:6}
-            loadTemplate()
-            $scope.model.inProgress = false
-          })
+        dbService.addSentRecord(record).then(function(){
+          //we're done, so reset?
+          $scope.model.form = {signup: false, group:6}
+          loadTemplate()
+          $scope.model.inProgress = false
+          console.log("got here")
         })
       })
-    }
+    })
+
 
   }
 
@@ -148,7 +145,7 @@ app.controller('ctrl', function($scope,  $window, $document, $location, dbServic
     $scope.model.modalInstance = $uibModal.open({
        templateUrl: prefix + 'views/'+ fname + ".html" ,
        scope: $scope,
-       size: 'sm'
+       size: 'md'
      });
   }
 
