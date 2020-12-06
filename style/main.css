@@ -22,7 +22,7 @@ html, body {
   	width: 200px;
 }
 
-row {
+.row {
     height: 100%;
 }
 
@@ -213,4 +213,33 @@ select:focus {
   top: 15px;
   right: 15px;
   font-size: 30px;
+}
+
+.nav {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  margin-top: 4vh
+}
+
+.nav .menu-item {
+  width: 100%;
+  padding:3px 15px 3px 15px;
+  text-align: center;
+
+}
+
+.nav a {
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 1vh;
+}
+
+.nav a:hover {
+  background-color: white;
+  color:#990000 !important;
+}
+
+.nav a:hover {
+  text-decoration: none;
 }

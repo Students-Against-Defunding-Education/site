@@ -93,9 +93,9 @@ app.controller('ctrl', function($scope,  $window, $document, $location, dbServic
     $($scope.model.template).find("#letter-signature").append(signature)
 
     let data = {
-      "first_name":$scope.model.form.fn && $scope.model.form.fn!=''? Aes.Ctr.encrypt($scope.model.form.fn, __env.secret, 256):null ,
-      "last_name":$scope.model.form.ln && $scope.model.form.ln!=''? Aes.Ctr.encrypt($scope.model.form.ln, __env.secret, 256):null ,
-      "email": Aes.Ctr.encrypt($scope.model.form.email, __env.secret, 256),
+      "first_name":$scope.model.form.fn && $scope.model.form.fn!=''? $scope.model.form.fn:null ,
+      "last_name":$scope.model.form.ln && $scope.model.form.ln!=''? $scope.model.form.ln:null,
+      "email": $scope.model.form.email,
       "group":$scope.model.form.group,
       "signup": $scope.model.form.signup
     }
