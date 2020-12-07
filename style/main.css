@@ -3,23 +3,24 @@ html, body {
   width: 100%;
   overflow-x: hidden;
   font-family: 'Spartan', sans-serif;
-  padding: 0em;
+  padding: 0px;
   line-height: 2em;
 }
 
 h1 {
   text-align: center;
   font-family: 'Spartan', sans-serif;
-  margin-top: 4vh;}
+  margin-top: 5vh !important;
+}
 
 h2 {
-  margin: 1em;
+  margin-top: 5vh !important;
   font-family: 'Spartan', sans-serif;
   line-height: 2em;
 }
 
 h3 {
-  margin: 1em;
+  margin-top: 5vh !important;
   font-family: 'Spartan', sans-serif;
   line-height: 2em;
 }
@@ -85,14 +86,17 @@ a:hover {
 
 #submit {
   margin: 2em;
+  text-align: center;
 }
 
 #add-contact {
   margin: 2em;
 }
 
-#home-page {
+#home-page, #main-form {
   padding-top: 3vh;
+  padding-left: 1.5%;
+  padding-right: 1.5%
 }
 
 /*not an ideal solution but config isn't working*/
@@ -238,54 +242,52 @@ select:focus {
   padding-bottom: 3vh;
 }
 
-.m-buttons {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  display: inline;
-  padding: 5px;
-}
 
 .m-close {
-  position: fixed;
+  position: absolute;
   top: 15px;
   right: 15px;
   font-size: 30px;
+}
+
+.m-buttons {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
 }
 
 .nav {
   width: 90%;
   margin: auto;
   text-align: center;
-  margin-top: 14vh;
+  margin-top: 5vh;
   line-height: 1em;
   font-family: 'Spartan', sans-serif;
 }
 
 .nav .menu-item {
   width: 100%;
-  padding:3px 15px 3px 15px;
   text-align: center;
-}
-
-.nav a {
+  margin-bottom: 3vh;
   color: white !important;
   border-radius: 20px;
-  margin-bottom: 3vh;
   transition: background-color  0.3s ease;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.nav a:hover {
+
+.nav .menu-item:hover{
   background-color: white;
   color:#990000 !important;
-  text-decoration: none;
 }
 
-.nav a:active {
-  background-color: white;
+.nav a:hover, .nav a:active {
+  text-decoration: none !important;
+  font-weight: normal;
   color:#990000 !important;
-  text-decoration: none;
 }
+
 
 @media screen and (max-width: 700px) {
   .nav {
