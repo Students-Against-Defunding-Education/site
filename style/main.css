@@ -307,3 +307,7 @@ select:focus {
   opacity: 0.5;
   text-align: center;
 }
+
+.note-editable p, .note-editable li, .note-editable ul{
+  font-family: 'Spartan', sans-serif !important;
+}
