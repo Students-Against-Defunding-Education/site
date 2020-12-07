@@ -87,10 +87,14 @@ app.controller('ctrl', function($scope,  $window, $document, $location, dbServic
   $scope.submit = function(){
     $scope.model.submitted = true
     $scope.model.inProgress = true
-    let signature = document.createElement("span")
-    signature.innerHTML = $scope.model.form.fn+'&nbsp;'+$scope.model.form.ln
+    let signature = document.createElement("div")
+    signature.innerHTML = $scope.model.form.fn+'&nbsp;'+$scope.model.form.ln;
+    let email = document.createElement("div")
+    email.style.opacity = "0.8"
+    email.innerHTML = $scope.model.form.email
     $($scope.model.template).find('#content-wrapper').append($scope.model.editable)
     $($scope.model.template).find("#letter-signature").append(signature)
+    $($scope.model.template).find("#letter-signature").append(email)
 
     let data = {
       "first_name":$scope.model.form.fn && $scope.model.form.fn!=''? $scope.model.form.fn:null ,
