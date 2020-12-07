@@ -5,6 +5,8 @@
     <title>Students Against Defunding Education</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="./style/favicon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;400&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!--angular setup-->
@@ -28,8 +30,6 @@
     <link rel="stylesheet" href="./style/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;400&display=swap" rel="stylesheet">
     <script src="js/env.js"></script>
     <script src = "js/angucomplete-alt.js"></script>
     <script src="js/ui-bootstrap-tpls-3.0.6.min.js" ></script>
@@ -40,16 +40,13 @@
       <div class="col-1">
         <div class="nav">
           <a href="#!"><div class="menu-item">Home</div></a>
-          <a href="#!/email"><div class="menu-item">Email</div></a>
+          <a href="#!/email"><div class="menu-item">Take Action</div></a>
         </div>
       </div>
-    <!--anything that should appear on all pages (navigation, for example) should go here-->
-
-    <!--the ng-view controls the main content of different pages (in the views folder)..nav is controlled through routing-->
       <div class="col-10"><ng-view  id="view-content" autoscroll="true" ng-cloak></ng-view></div>
       <div class="col-1"></div>
     </div>
-
-    <!--ditto for down here - footers and whatnot-->
+    <div class="footer">
+    </div>
   </body>
 </html>
